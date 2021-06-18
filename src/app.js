@@ -1,5 +1,6 @@
 let apiKey = `e4dfdc1dfbd9af8701deee7d18b22e9b`;
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=New York&units=metric&appid=${apiKey}`;
+let city = `Sharon`;
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
 function formatDate(timestamp) {
   let date = new Date(timestamp);
