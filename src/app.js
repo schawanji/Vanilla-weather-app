@@ -1,7 +1,3 @@
-let apiKey = `e4dfdc1dfbd9af8701deee7d18b22e9b`;
-let city = `Sharon`;
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
-
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -47,4 +43,19 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", `response.data.weather[0].description`);
 }
 
-axios.get(apiUrl).then(displayTemperature);
+function search(city) {
+  let apiKey = `e4dfdc1dfbd9af8701deee7d18b22e9b`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector(`#city-input`);
+  search(cityInputElement.value);
+  console.log(cityInputElement.value);
+}
+
+search(`Sharon`);
+let form = document.querySelector(`#search-form`);
+form.addEventListener("submit", handleSubmit);
