@@ -1,2 +1,2 @@
-# Vanilla-weather-app
+# VanillaJS-weather-app
  
